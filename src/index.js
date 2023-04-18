@@ -35,7 +35,7 @@ const menubar = [
     submenu: [
       {
         label: 'Developer Tools',
-        click: () => devtools()
+        click: () => mainWindow.webContents.openDevTools()
       },
       {
         label: 'Quit',
