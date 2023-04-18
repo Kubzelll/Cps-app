@@ -8,7 +8,7 @@ if (require('electron-squirrel-startup')) {
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -20,6 +20,7 @@ const createWindow = () => {
   const menu = Menu.buildFromTemplate(menubar);
   Menu.setApplicationMenu(menu);
 
+  console.log(mainWindow)
 
 
 //  mainWindow.webContents.openDevTools();
@@ -34,7 +35,7 @@ const menubar = [
     submenu: [
       {
         label: 'Developer Tools',
-        click: () => mainWindow.webContents.openDevTools()
+        click: () => devtools()
       },
       {
         label: 'Quit',
