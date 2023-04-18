@@ -22,7 +22,7 @@ const createWindow = () => {
 
 
 
-  mainWindow.webContents.openDevTools();
+//  mainWindow.webContents.openDevTools();
 };
 
 
@@ -30,8 +30,12 @@ app.on('ready', createWindow);
 
 const menubar = [
   {
-    label: 'Exit',
+    label: 'Main',
     submenu: [
+      {
+        label: 'Developer Tools',
+        click: () => mainWindow.webContents.openDevTools()
+      },
       {
         label: 'Quit',
         click: () => app.quit(),
