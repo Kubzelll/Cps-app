@@ -21,8 +21,6 @@ const createWindow = () => {
   const menu = Menu.buildFromTemplate(menubar);
   Menu.setApplicationMenu(menu);
 
-  console.log(mainWindow)
-
 
 //  mainWindow.webContents.openDevTools();
 };
