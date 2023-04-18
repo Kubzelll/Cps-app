@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, MenuItem } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -16,10 +16,12 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  const menu = Menu.buildFromTemplate(menubar);
+  Menu.setApplicationMenu(menu);
 
-  // Open the DevTools.
+
+
  // mainWindow.webContents.openDevTools();
 };
 
@@ -27,6 +29,19 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
+
+const menubar = [
+  {
+    label: 'Exit',
+    submenu: [
+      {
+        label: 'Quit',
+        click: () => app.quit(),
+        accelator: 'CmdOrCtrl+Q'
+      }
+    ]
+  }
+];
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
