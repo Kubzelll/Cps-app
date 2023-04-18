@@ -6,6 +6,9 @@ const text = document.getElementById('text');
 let counting = false;
 
 button.disabled = true;
+button.addEventListener("click", () => {
+    click_handler()
+});
 
 start_button.addEventListener("click", () => {
     start_handler()
@@ -23,11 +26,10 @@ function clear_announcement() {
 
 function start_handler() {
     console.log('Started counting');
+    button.disabled = false;
     clear_announcement()
     clicks = 0;
     start_button.disabled = true;
-    counting = true;
-    click_handler();
     setTimeout(function() {
         start_button.disabled = false;
         let cps = clicks / 10
@@ -43,11 +45,10 @@ function start_handler() {
 
 
 function click_handler() {    
-    if(counting == false) {
-        console.log("Returned")
-        button.disabled = true;
+    if(counting == true) {
         return
-    }
+    }else {
+    counting = true;
     console.log("Click handler started")
     button.disabled = false;
     button.addEventListener("click", () => {
@@ -55,6 +56,6 @@ function click_handler() {
         console.log("Clicked")
         button.textContent = "Clicks:" + clicks;
     });
-    //I need to repair this bc it doesn't return and handlers are multiplied and clicks are doubled or tripled
-
+    }
 }
+
