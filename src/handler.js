@@ -18,7 +18,7 @@ function start_handler() {
     click_handler();
     setTimeout(function() {
         start_button.disabled = false;
-        button.disabled = true;
+    //    button.disabled = true;
         let cps = clicks / 10
         alert(`Clicks: ${clicks}, CPS: ${cps}`)
         counting = false;
@@ -31,9 +31,11 @@ function click_handler() {
     button.disabled = false;
     button.addEventListener("click", () => {
         clicks++;
+        console.log("Clicked")
         button.textContent = "Clicks:" + clicks;
     });
     if(counting == false) {
+        button.disabled = true;
         return
     }
 }
