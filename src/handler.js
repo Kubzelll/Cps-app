@@ -2,6 +2,7 @@ let clicks = 0;
 
 const button = document.getElementById('click-Btn');
 const start_button = document.getElementById('start-Btn');
+const text = document.getElementById('text');
 let counting = false;
 
 button.disabled = true;
@@ -39,4 +40,3 @@ function click_handler() {
         return
     }
 }
-

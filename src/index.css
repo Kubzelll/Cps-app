@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Anuphan:wght@300&family=Montserrat:ital,wght@1,100&display=swap');
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
@@ -17,19 +18,28 @@ h1 {
   text-align: center;
 }
 
-#click-Btn {
+.btn {
   background-color: #fff;
   color: #ff007f;
-  padding: 20px 50px;
+  padding: 20px 50px; 
   font-size: 24px;
   border: 2px solid red;
+  text-align: center;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 50px;
   
 }
+#text {
+  font-family: 'Anuphan', sans-serif;
+  color: #ec6003;
+  font-size: 60px;
+  text-align: center;
 
-#click-Btn:hover {
+  
+}
+
+.btn:hover {
   background-color: #ec6003;
   color: #e93904;
 }
