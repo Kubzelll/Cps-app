@@ -10,33 +10,51 @@ button.disabled = true;
 start_button.addEventListener("click", () => {
     start_handler()
 });
+function announcement(cps) {
+    text.textContent = "You got " + cps + " cps, \n and " + clicks + " clicks.";
+    setTimeout(function() {
+        text.textContent = null
+    }, 5000);
+}
+function clear_announcement() {
+    text.textContent = null
+}
+
 
 function start_handler() {
     console.log('Started counting');
+    clear_announcement()
     clicks = 0;
     start_button.disabled = true;
     counting = true;
     click_handler();
     setTimeout(function() {
         start_button.disabled = false;
-    //    button.disabled = true;
         let cps = clicks / 10
+        announcement(cps);
         alert(`Clicks: ${clicks}, CPS: ${cps}`)
+        button.disabled = true;
         counting = false;
         clicks = 0;
-        button.textContent = "Clicks:" + clicks;
+        button.textContent = "Click start to count again";
     }, 10000);
 }
 
-function click_handler() {
+
+
+function click_handler() {    
+    if(counting == false) {
+        console.log("Returned")
+        button.disabled = true;
+        return
+    }
+    console.log("Click handler started")
     button.disabled = false;
     button.addEventListener("click", () => {
         clicks++;
         console.log("Clicked")
         button.textContent = "Clicks:" + clicks;
     });
-    if(counting == false) {
-        button.disabled = true;
-        return
-    }
+    //I need to repair this bc it doesn't return and handlers are multiplied and clicks are doubled or tripled
+
 }

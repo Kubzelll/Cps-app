@@ -22,7 +22,7 @@ const createWindow = () => {
 
 
 
- // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 
@@ -36,6 +36,10 @@ const menubar = [
         label: 'Quit',
         click: () => app.quit(),
         accelator: 'CmdOrCtrl+Q'
+      },
+      {
+        label: 'Dont click that',
+        click: () => { require('electron').shell.openExternal("https://www.youtube.com/watch?v=dQw4w9WgXcQ")}
       }
     ]
   }
