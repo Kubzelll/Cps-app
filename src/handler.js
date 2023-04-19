@@ -6,10 +6,6 @@ const text = document.getElementById('text');
 let counting = false;
 
 button.disabled = true;
-button.addEventListener("click", () => {
-    click_handler()
-});
-
 start_button.addEventListener("click", () => {
     start_handler()
 });
@@ -37,26 +33,14 @@ function start_handler() {
         alert(`Clicks: ${clicks}, CPS: ${cps}`)
         button.disabled = true;
         counting = false;
-        button.removeEventListener('click', (event) => {});
         clicks = 0;
         button.textContent = "Click start to count again";
     }, 10000);
 }
 
-
-
-function click_handler() {    
-    if(counting == true) {
-        return
-    }else {
-    counting = true;
-    console.log("Click handler started")
-    button.disabled = false;
-    button.addEventListener("click", () => {
-        clicks++;
-        console.log("Clicked")
-        button.textContent = "Clicks:" + clicks;
-    });
-    }
+function clicked() {
+    clicks++;
+    console.log("Clicked");
+    button.textContent = "Clicks:" + clicks;
 }
 
