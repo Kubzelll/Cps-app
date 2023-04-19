@@ -37,6 +37,7 @@ function start_handler() {
         alert(`Clicks: ${clicks}, CPS: ${cps}`)
         button.disabled = true;
         counting = false;
+        button.removeEventListener('click', (event) => {});
         clicks = 0;
         button.textContent = "Click start to count again";
     }, 10000);
